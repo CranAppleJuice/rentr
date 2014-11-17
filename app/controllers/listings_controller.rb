@@ -1,13 +1,13 @@
 class ListingsController < ApplicationController
-	def new
-	end
+  def new
+  end
 
-	def create
-	end
+  def create
+  end
 
-	def edit
-	end
+  def edit
+  end
 
-	def delete
-	end
+  def delete
+  end
 end
