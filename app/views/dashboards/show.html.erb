@@ -1,0 +1,15 @@
+<div>
+  <%= button_to "Add listing", new_listing_path, method: :get %>
+</div>
+
+<% @listings.each do |listing| %>
+  <ul>
+    <li>
+      <h3><%= listing.title %></h3>
+      <div>Located in <%= listing.location %></div>
+      <div><%= listing.housing_type %></div>
+      <div>$<%= listing.price %></div>
+      <div>Available from <%= listing.available_from %> to <%= listing.available_to %></div>
+    </li>
+  </ul>
+<% end %>
