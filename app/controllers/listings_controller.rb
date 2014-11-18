@@ -30,7 +30,7 @@ class ListingsController < ApplicationController
 
   def destroy
     listing = Listing.find(params[:id])
-    listing.delete
+    listing.destroy
 
     redirect_to dashboard_path
   end
