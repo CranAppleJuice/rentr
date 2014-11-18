@@ -15,9 +15,24 @@ class ListingsController < ApplicationController
   end
 
   def edit
+    @listing = Listing.find(params[:id])
   end
 
-  def delete
+  def update
+    listing = Listing.find(params[:id])
+
+    if listing.update(listing_params)
+      redirect_to dashboard_path
+    else
+      redirect_to :back
+    end
+  end
+
+  def destroy
+    listing = Listing.find(params[:id])
+    listing.delete
+
+    redirect_to dashboard_path
   end
 
   private
