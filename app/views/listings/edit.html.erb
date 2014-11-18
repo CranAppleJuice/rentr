@@ -1,0 +1,42 @@
+<h1>Edit Listing</h1>
+
+<%= form_for @listing do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <div>
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+  </div>
+
+  <div>
+    <%= f.label :housing_type %>
+    <%= f.text_field :housing_type %>
+  </div>
+
+  <div>
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+  </div>
+
+  <div>
+    <%= f.label :available_from %>
+    <%= f.date_select :available_from %>
+  </div>
+
+  <div>
+    <%= f.label :available_to %>
+    <%= f.date_select :available_to %>
+  </div>
+
+  <div>
+    <%= f.submit "Submit" %>
+  </div>
+<% end %>

@@ -6,10 +6,16 @@
   <ul>
     <li>
       <h3><%= listing.title %></h3>
-      <div>Located in <%= listing.location %></div>
+      <div><%= listing.location %></div>
       <div><%= listing.housing_type %></div>
       <div>$<%= listing.price %></div>
       <div>Available from <%= listing.available_from %> to <%= listing.available_to %></div>
+      <% if current_user.posted? listing %>
+      <div>
+        <%= button_to "Edit listing", edit_listing_path(listing), method: :get %>
+        <%= button_to "Delete listing", listing_path(listing), method: :delete %>
+      </div>
+      <% end %>
     </li>
   </ul>
 <% end %>
