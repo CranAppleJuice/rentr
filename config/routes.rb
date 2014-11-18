@@ -12,5 +12,5 @@ Rails.application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create]
-  resources :listings, only: [:new, :create, :edit, :destroy]
+  resources :listings
 end
