@@ -10,11 +10,11 @@ label,
 select {
   display: block;
   font-family: $form-font-family;
+  font-weight: 300;
   font-size: $form-font-size;
 }
 
 label {
-  font-weight: bold;
   margin-bottom: $base-spacing / 4;
 
   &.required:after {
@@ -34,19 +34,20 @@ select[multiple=multiple] {
   background-color: white;
   border-radius: $form-border-radius;
   border: 1px solid $form-border-color;
-  box-shadow: $form-box-shadow;
+  // box-shadow: $form-box-shadow;
   font-family: $form-font-family;
   font-size: $form-font-size;
-  margin-bottom: $base-spacing / 2;
+  font-weight: 300;
+  margin-bottom: $base-spacing / 3;
   padding: ($base-spacing / 3) ($base-spacing / 3);
   width: 100%;
 
-  &:hover {
-    border-color: $form-border-color-hover;
-  }
+  // &:hover {
+  //   border-color: $form-border-color-hover;
+  // }
 
   &:focus {
-    border-color: $form-border-color-focus;
+    // border-color: $form-border-color-focus;
     box-shadow: $form-box-shadow-focus;
     outline: none;
   }
@@ -75,4 +76,32 @@ select {
   margin-bottom: $base-spacing;
   max-width: 100%;
   width: auto;
+}
+
+/* custom styles */
+
+.form-container {
+  background-color: $light-gray;
+  max-width: 600px;
+  border-radius: 10px;
+  padding: 4%;
+  height: 23em;
+  margin: 0 auto;
+  position: relative;
+  top: 3em;
+}
+
+.login {
+  position: absolute;
+  left: 50%;
+  margin-left: -85px;
+  top: 63%;
+}
+
+input[type="email"] {
+  color: #000; /* form field text color */
+}
+
+input[type="email"]::-webkit-input-placeholder {
+  color: $medium-gray; /* placeholder text color */
 }
