@@ -14,6 +14,10 @@ class ListingsController < ApplicationController
     end
   end
 
+  def show
+    @listing = Listing.find(params[:id])
+  end
+
   def edit
     @listing = Listing.find(params[:id])
   end
@@ -22,7 +26,7 @@ class ListingsController < ApplicationController
     listing = Listing.find(params[:id])
 
     if listing.update(listing_params)
-      redirect_to dashboard_path
+      redirect_to listing_path
     else
       redirect_to :back
     end
