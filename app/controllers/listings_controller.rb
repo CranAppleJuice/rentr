@@ -45,7 +45,8 @@ class ListingsController < ApplicationController
       :housing_type,
       :price,
       :available_from,
-      :available_to
+      :available_to,
+      :listing_image
     )
   end
 end
