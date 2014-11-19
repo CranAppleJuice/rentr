@@ -5,18 +5,16 @@
 <% @listings.each do |listing| %>
   <ul>
     <li>
-      <div><%= image_tag listing.listing_image.url(:medium) %></div>
-      <h3><%= listing.title %></h3>
-      <div><%= listing.location %></div>
-      <div><%= listing.housing_type %></div>
-      <div>$<%= listing.price %></div>
-      <div>Available from <%= listing.available_from %> to <%= listing.available_to %></div>
-      <% if current_user.posted? listing %>
       <div>
-        <%= button_to "Edit listing", edit_listing_path(listing), method: :get %>
-        <%= button_to "Delete listing", listing_path(listing), method: :delete %>
-      </div>
+      <%= link_to(listing) do %>
+        <div><%= image_tag listing.listing_image.url(:medium) %></div>
+        <h3><%= listing.title %></h3>
+        <div><%= listing.location %></div>
+        <div><%= listing.housing_type %></div>
+        <div>$<%= listing.price %></div>
+        <div>Available from <%= listing.available_from %> to <%= listing.available_to %></div>
       <% end %>
+      </div>
     </li>
   </ul>
 <% end %>
