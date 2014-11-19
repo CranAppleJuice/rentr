@@ -9,15 +9,17 @@
     </ul>
   <% end %>
 
-  <div>
-    <%= form.label :email %>
-    <%= form.email_field :email %>
-  </div>
-  <div>
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
-  <div>
-    <%= form.submit "Sign up" %>
-  </div>
+  <div class="form-container">
+    <div>
+      <%= form.label :email %>
+      <%= form.email_field :email, placeholder: "Email" %>
+    </div>
+    <div>
+      <%= form.label :password %>
+      <%= form.password_field :password, placeholder: "Password" %>
+    </div>
+    <div class="login">
+      <%= form.submit "Sign up" %>
+    </div>
+  </div> <!--end form container-->
 <% end %>
