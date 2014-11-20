@@ -1,0 +1,27 @@
+<h1>Book listing for what dates?</h1>
+
+<%= form_for [@listing, @booking] do |f| %>
+
+  <% if @booking.errors.any? %>
+    <%= pluralize(@booking.errors.count, "error") %> prevented you from making a booking:
+    <ul>
+      <% @booking.errors.full_messages.each do |error_message| %>
+        <li><%= error_message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div>
+    <%= f.label :start_date %>
+    <%= f.date_select :start_date %>
+  </div>
+
+  <div>
+    <%= f.label :end_date %>
+    <%= f.date_select :end_date %>
+  </div>
+
+  <div>
+    <%= f.submit "Book listing" %>
+  </div>
+<% end %>
