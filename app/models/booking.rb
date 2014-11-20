@@ -5,10 +5,10 @@ class Booking < ActiveRecord::Base
   validates :start_date, presence: true
   validates :end_date, presence: true
   validate :start_date_is_in_future,
-    :date_range_is_valid,
-    :dates_are_not_equal,
-    :listing_is_available,
-    :does_not_overlap_other_bookings
+           :date_range_is_valid,
+           :dates_are_not_equal,
+           :listing_is_available,
+           :does_not_overlap_other_bookings
 
   private
 
