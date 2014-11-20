@@ -1,0 +1,17 @@
+<h1>Book listing for what dates?</h1>
+
+<%= form_for [@listing, @booking] do |f| %>
+  <div>
+    <%= f.label :start_date %>
+    <%= f.date_select :start_date %>
+  </div>
+
+  <div>
+    <%= f.label :end_date %>
+    <%= f.date_select :end_date %>
+  </div>
+
+  <div>
+    <%= f.submit "Book listing" %>
+  </div>
+<% end %>
