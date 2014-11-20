@@ -9,4 +9,12 @@ class User < ActiveRecord::Base
   def posted?(listing)
     listings.include?(listing)
   end
+
+  def already_booked?(listing)
+    booked_listings.include?(listing)
+  end
+
+  def booking_for(listing)
+    bookings.find_by(listing_id: listing.id)
+  end
 end
