@@ -10,16 +10,16 @@
 
 <% if current_user.posted? @listing %>
   <div>
-    <%= button_to(
-      "Edit listing",
-      edit_listing_path(@listing),
-      method: :get
-    ) %>
-    <%= button_to(
-      "Delete listing",
-      listing_path(@listing),
-      method: :delete
-    ) %>
+    <%= button_to "Edit listing", edit_listing_path(@listing), method: :get %>
+    <%= button_to "Delete listing",listing_path(@listing), method: :delete %>
+  </div>
+<% elsif current_user.already_booked? @listing %>
+  <div>
+    <%= button_to "Unbook", listing_booking_path(@listing, current_user.booking_for(@listing)), method: :delete %>
+  </div>
+<% else%>
+  <div>
+    <%= button_to "Book", new_listing_booking_path(@listing), method: :get %>
   </div>
 <% end %>
 
