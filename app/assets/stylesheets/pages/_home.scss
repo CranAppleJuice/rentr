@@ -1,0 +1,19 @@
+.listing {
+
+  max-width: $max-width;
+  margin: 0 auto;
+
+  li {
+    float: left;
+
+    &:nth-child(3n) {
+      padding-right: 0;
+    }
+
+  }
+
+  img {
+    max-width: 100%;
+    padding-right: 10%;
+  }
+}
