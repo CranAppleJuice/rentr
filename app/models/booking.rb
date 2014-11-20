@@ -32,7 +32,7 @@ class Booking < ActiveRecord::Base
 
   def listing_is_available
     listing = Listing.find(listing_id)
-    if (start_date < listing.available_from || end_date > listing.available_to)
+    if booking_outside(listing)
       errors.add(:listing, "is unavailable for that date range")
     end
   end
@@ -40,12 +40,33 @@ class Booking < ActiveRecord::Base
   def does_not_overlap_other_bookings
     listing = Listing.find(listing_id)
     listing.bookings.each do |booking|
-      if (end_date > booking.start_date && end_date < booking.end_date) ||
-        (start_date > booking.start_date && start_date < booking.end_date) ||
-        (start_date < booking.start_date && end_date > booking.end_date)
+      if end_date_falls_within_other(booking) ||
+        start_date_falls_within_other(booking) ||
+        booking_includes_other(booking)
+
         errors.add(:booking, "overlaps another booking")
         break
       end
     end
+  end
+
+  def booking_outside(listing)
+    start_date < listing.available_from ||
+    end_date   > listing.available_to
+  end
+
+  def end_date_falls_within_other(booking)
+    end_date > booking.start_date &&
+    end_date < booking.end_date
+  end
+
+  def start_date_falls_within_other(booking)
+    start_date > booking.start_date &&
+    start_date < booking.end_date
+  end
+
+  def booking_includes_other(booking)
+    start_date <= booking.start_date &&
+    end_date >= booking.end_date
   end
 end
