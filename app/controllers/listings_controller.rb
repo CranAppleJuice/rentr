@@ -8,6 +8,7 @@ class ListingsController < ApplicationController
     current_user.listings << @listing
 
     if @listing.save
+      @listing.errors.full_messages
       redirect_to dashboard_path
     else
       redirect_to :back
