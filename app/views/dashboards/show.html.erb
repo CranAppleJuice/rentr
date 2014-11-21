@@ -1,20 +1,23 @@
-<div>
+<div class="add button">
   <%= button_to "Add listing", new_listing_path, method: :get %>
 </div>
 
-<% @listings.each do |listing| %>
-  <ul class="listing">
-    <li>
-      <div>
-      <%= link_to(listing) do %>
-        <div><%= image_tag listing.listing_image.url(:medium) %></div>
-        <h3><%= listing.title %></h3>
-        <div><%= listing.location %></div>
-        <div><%= listing.housing_type %></div>
-        <div>$<%= listing.price %></div>
-        <div>Available from <%= listing.available_from %> to <%= listing.available_to %></div>
-      <% end %>
-      </div>
-    </li>
-  </ul>
-<% end %>
+<ul class="listings">
+  <% @listings.each do |listing| %>
+      <li>
+        <div class="item">
+        <%= link_to(listing) do %>
+          <!-- <div class="image-container"><%= image_tag listing.listing_image.url(:medium) %></div> -->
+          <div class="image-container" style="background-image: url('<%= listing.listing_image.url %>');"></div>
+          <div class="details">
+            <h4><%= listing.title %></h4>
+            <div><%= listing.location %></div>
+            <div><%= listing.housing_type %></div>
+            <div class="price">$<%= listing.price %></div>
+            <!-- <div>Available from <%= listing.available_from %> to <%= listing.available_to %></div> -->
+          </div> <!--end details-->
+        <% end %>
+        </div>
+      </li>
+  <% end %>
+</ul>
