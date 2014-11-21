@@ -20,4 +20,12 @@ class Listing < ActiveRecord::Base
   validates :price, presence: true
   validates :available_from, presence: true
   validates :available_to, presence: true
+
+  def is_booked_on_first_available_date?
+    available_from == bookings.order(:start_date).first.start_date
+  end
+
+  def is_booked_on_last_available_date?
+    available_to == bookings.order(:end_date).last.end_date
+  end
 end

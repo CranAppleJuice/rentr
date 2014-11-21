@@ -4,9 +4,29 @@
 <div><%= @listing.location %></div>
 <div><%= @listing.housing_type %></div>
 <div>$<%= @listing.price %></div>
-<div>
-  Available from <%= @listing.available_from %> to <%= @listing.available_to %>
-</div>
+<ul>
+  Availability:
+  <li>
+    <% unless @listing.is_booked_on_first_available_date? %>
+      <%= @listing.available_from.strftime("%b %d, %Y") %>
+    <% end %>
+
+    <% @listing.bookings.each do |booking| %>
+      <% unless booking.starts_on_first_available_date? %>
+        to <%= booking.start_date.strftime("%b %d, %Y") %>
+      <% end %>
+  </li>
+  <li>
+      <% unless booking.ends_on_last_available_date? %>
+        <%= booking.end_date.strftime("%b %d, %Y") %>
+      <% end %>
+    <% end %>
+
+    <% unless @listing.is_booked_on_last_available_date? %>
+      to <%= @listing.available_to.strftime("%b %d, %Y") %>
+    <% end %>
+  </li>
+</ul>
 
 <% if current_user.posted? @listing %>
   <div>
