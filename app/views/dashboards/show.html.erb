@@ -1,7 +1,6 @@
 <div class="add button">
   <%= button_to "Add listing", new_listing_path, method: :get %>
 </div>
-
 <ul class="listings">
   <% @listings.each do |listing| %>
       <li>
@@ -14,7 +13,7 @@
             <div><%= listing.location %></div>
             <div><%= listing.housing_type %></div>
             <div class="price">$<%= listing.price %></div>
-            <!-- <div>Available from <%= listing.available_from %> to <%= listing.available_to %></div> -->
+            <div>Available from <%= listing.available_from %> to <%= listing.available_to %></div>
           </div> <!--end details-->
         <% end %>
         </div>
