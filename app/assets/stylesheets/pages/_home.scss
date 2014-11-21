@@ -1,9 +1,3 @@
-// .container {
-//   max-width: $max-width;
-//   margin: 0 auto;
-//   @include clearfix();
-// }
-
 .listings {
   @include clearfix();
 
@@ -57,11 +51,11 @@
 
 .price {
   font-size: 2em;
-  position: relative;
-  left: 73%;
   border-radius: 40%;
   display: inline;
   font-weight: 400;
+  float: right;
+  padding-right: 5%;
 }
 
 h4 {
