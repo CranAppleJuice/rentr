@@ -1,3 +1,9 @@
+// .container {
+//   max-width: $max-width;
+//   margin: 0 auto;
+//   @include clearfix();
+// }
+
 .listings {
   @include clearfix();
 
@@ -29,7 +35,6 @@
 }
 
 .image-container {
-  // width: 310px;
   height: 250px;
   background-color: $medium-gray;
   border-top-left-radius: 2%;
