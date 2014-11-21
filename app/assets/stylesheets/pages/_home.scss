@@ -57,11 +57,13 @@
 
 .price {
   font-size: 2em;
-  position: relative;
-  left: 73%;
+  // position: relative;
+  // left: 73%;
   border-radius: 40%;
   display: inline;
   font-weight: 400;
+  float: right;
+  padding-right: 4%;
 }
 
 h4 {
