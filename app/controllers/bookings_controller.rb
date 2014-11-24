@@ -6,7 +6,11 @@ class BookingsController < ApplicationController
 
   def create
     @listing = Listing.find(params[:listing_id])
-    @booking = Booking.new(booking_params_plus_user_and(@listing))
+
+    new_booking_params =  booking_params
+    new_booking_params[:user_id] = current_user.id
+    new_booking_params[:listing_id] = @listing.id
+    @booking = Booking.new(new_booking_params)
 
     if @booking.save
       redirect_to listing_path(@listing)
@@ -25,10 +29,7 @@ class BookingsController < ApplicationController
 
   private
 
-  def booking_params_plus_user_and(listing)
-    booking_params = params.require(:booking).permit(:start_date, :end_date)
-    booking_params[:user_id] = current_user.id
-    booking_params[:listing_id] = listing.id
-    booking_params
+  def booking_params
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end
