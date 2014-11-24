@@ -17,6 +17,10 @@
 
   <h1><%= link_to "rentr", dashboard_path %></h1>
 
+  <% flash.each do |name, message| %>
+    <%= content_tag :div, message, class: name %>
+  <% end %>
+
   <%= yield %>
 
 </body>

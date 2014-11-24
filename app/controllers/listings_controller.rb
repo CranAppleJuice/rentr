@@ -8,10 +8,9 @@ class ListingsController < ApplicationController
     current_user.listings << @listing
 
     if @listing.save
-      @listing.errors.full_messages
       redirect_to dashboard_path
     else
-      redirect_to :back
+      render :new
     end
   end
 
@@ -24,12 +23,12 @@ class ListingsController < ApplicationController
   end
 
   def update
-    listing = Listing.find(params[:id])
+    @listing = Listing.find(params[:id])
 
-    if listing.update(listing_params)
+    if @listing.update(listing_params)
       redirect_to listing_path
     else
-      redirect_to :back
+      render :edit
     end
   end
 

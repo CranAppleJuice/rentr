@@ -10,7 +10,10 @@ class SessionsController < ApplicationController
     if sign_in(user)
       redirect_to root_path
     else
-      render :new
+      flash[:notice] = "Your email or password was incorrect. \n
+                        Please try again."
+
+      redirect_to :back
     end
   end
 
